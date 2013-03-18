@@ -1,0 +1,22 @@
+{
+    "name": "acre"
+  , "description": "Admin CRUD, and REST generator for Node.js"
+  , "version": "0.0.1"
+  , "author": "John Eke <john.eke@gmail.com>"
+  , "keywords": ["admin portal", "admin", "CRUD", "REST"]
+  , "dependencies": {
+    }
+  , "directories": { "lib": "./lib/mongoose" }
+  , "scripts": { "test": "make test" }
+  , "main": "./index.js"
+  , "engines": { "node": ">=0.6.19" }
+  , "bugs": {
+        "url":"https://github.com/johneke/acre/issues/new"
+      , "email": "http://stackoverflow.com/questions/tagged/acre"
+    }
+  , "repository": {
+        "type": "git"
+      , "url": "https://github.com/johneke/acre.git"
+    }
+  , "homepage": "http://acrejs.com"
+}
