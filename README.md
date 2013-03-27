@@ -3,6 +3,11 @@ acre
 
 admin-page, crud, and rest api generator for node js
 
+status
+======
+
+incomplete: sill under heavy development
+
 schema rules
 ============
 
