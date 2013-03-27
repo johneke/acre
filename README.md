@@ -11,8 +11,10 @@ incomplete: sill under heavy development
 schema rules
 ============
 
-every field in every object must have type, default, required, and validator regex speficied
-every nested object must have an _id field
+all nested objects must have an _id field
+all schema fields must have a default
+all schema fields must specify a validation rule
+
 
 attributions
 ============
