@@ -5,6 +5,8 @@
   , "author": "John Eke <john.eke@gmail.com>"
   , "keywords": ["admin portal", "admin", "CRUD", "REST"]
   , "dependencies": {
+      "ejs": "*",
+      "i": "*"
     }
   , "directories": { "lib": "./lib/mongoose" }
   , "scripts": { "test": "make test" }
