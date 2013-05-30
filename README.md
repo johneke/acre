@@ -19,5 +19,7 @@ schema rules
 attributions
 ============
 
-mongoose js
-mongoose-api
+* mongoose js
+* mongoose-api
+* angular js
+* restangular
