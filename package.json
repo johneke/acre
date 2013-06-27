@@ -6,7 +6,8 @@
   , "keywords": ["admin portal", "admin", "CRUD", "REST"]
   , "dependencies": {
       "ejs": "*",
-      "i": "*"
+      "i": "*",
+      "lodash": "*"
     }
   , "directories": { "lib": "./lib/mongoose" }
   , "scripts": { "test": "make test" }

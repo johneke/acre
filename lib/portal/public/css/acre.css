@@ -1,0 +1,36 @@
+.acre-fieldset {
+	margin-left: 10px;
+	margin-bottom: 5px;
+	padding-left: 10px;
+	border-left: 1px dashed #CCC;
+}
+
+.acre-legend {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.acre-array-action-button {
+	margin-left: 5px;
+}
+
+.acre-view-container {
+	margin-bottom: 20px;
+}
+
+.acre-ov-container {
+	margin-left: 10px;
+}
+
+.acre-ov-container-title {
+	font-weight: bold;
+}
+
+.acre-ov-label {
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+.acre-ov-value {
+	margin-left: 10px;
+}
