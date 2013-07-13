@@ -7,7 +7,9 @@
   , "dependencies": {
       "ejs": "*",
       "i": "*",
-      "lodash": "*"
+      "lodash": "*",
+      "async": "*",
+      "when": "*"
     }
   , "directories": { "lib": "./lib/mongoose" }
   , "scripts": { "test": "make test" }

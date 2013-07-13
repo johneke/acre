@@ -23,3 +23,5 @@ attributions
 * mongoose-api
 * angular js
 * restangular
+* when.js
+* lodash
