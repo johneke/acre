@@ -8,7 +8,6 @@
       "ejs": "*",
       "i": "*",
       "lodash": "*",
-      "async": "*",
       "when": "*"
     }
   , "directories": { "lib": "./lib/mongoose" }
