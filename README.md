@@ -18,7 +18,7 @@ TODO
 attributions
 ============
 
-* mongoose js
+* mongoose js (requires v 3.5.7 for now, none other)
 * mongoose-api
 * angular js
 * restangular
