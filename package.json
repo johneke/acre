@@ -1,7 +1,7 @@
 {
     "name": "acre"
   , "description": "Admin CRUD, and REST generator for Node.js"
-  , "version": "0.0.13-alpha"
+  , "version": "0.0.14-alpha"
   , "author": "John Eke <john.eke@gmail.com>"
   , "keywords": ["admin portal", "admin", "CRUD", "REST"]
   , "dependencies": {
