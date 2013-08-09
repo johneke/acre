@@ -1,14 +1,15 @@
 {
     "name": "acre"
   , "description": "Admin CRUD, and REST generator for Node.js"
-  , "version": "0.0.14-alpha"
+  , "version": "0.0.15-alpha"
   , "author": "John Eke <john.eke@gmail.com>"
   , "keywords": ["admin portal", "admin", "CRUD", "REST"]
   , "dependencies": {
       "ejs": "*",
       "i": "*",
       "lodash": "*",
-      "when": "*"
+      "when": "*",
+      "path-to-regexp": "*"
     }
   , "directories": { "lib": "./lib/mongoose" }
   , "scripts": { "test": "make test" }
