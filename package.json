@@ -11,6 +11,10 @@
       "when": "*",
       "path-to-regexp": "*"
     }
+  , "devDependencies": {
+    "mocha": "*",
+    "request": "*"
+  }
   , "directories": { "lib": "./lib/mongoose" }
   , "scripts": { "test": "make test" }
   , "main": "./index.js"
