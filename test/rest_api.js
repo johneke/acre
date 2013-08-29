@@ -72,16 +72,72 @@ describe('REST API', function(){
         app = null;
 
         // this is a bit of a hacky way to de-init mongoose
-        delete mongoose.models.Library;
-        delete mongoose.models.AcreAdmin;
-        delete mongoose.modelSchemas.Library;
-        delete mongoose.modelSchemas.AcreAdmin;
-        delete mongoose;
-        mongoose = null;
+        if (mongoose != null){
+                delete mongoose.models.Library;
+                delete mongoose.models.AcreAdmin;
+                delete mongoose.modelSchemas.Library;
+                delete mongoose.modelSchemas.AcreAdmin;
+                delete mongoose;
+                mongoose = null;
+        }
     });
+
+
 
     // describe an enclosure for our test suites for the acre.init method
     describe('init()', function(){
+          // before each of our test suites run, we need to do some setup:
+        beforeEach(function(){
+            // first initialize acre and its dependencies (express, and mongoose)
+            app = express();
+            mongoose = require('mongoose');
+            acre = require('acre');
+
+            // setup express (web server)
+            app.configure(function(){
+                acre.bodyParser(app);
+                app.use(express.bodyParser());
+                app.use(express.cookieParser());
+                app.use(express.methodOverride());
+                app.use(app.router);
+            });
+        });
+
+         // after each of our test suites run, we want to de-init acre and its dependencies
+       // this cleanup is important as it makes sure that each test suite is run on a CLEAN
+      // config, and errors arent carried over between test suites
+        afterEach(function(){
+            // destroy acre
+            delete acre;
+            acre = null;
+
+            // destroy express app
+            delete app;
+            app = null;
+
+            // this is a bit of a hacky way to de-init mongoose
+            delete mongoose.models.Library;
+            delete mongoose.models.AcreAdmin;
+            delete mongoose.modelSchemas.Library;
+            delete mongoose.modelSchemas.AcreAdmin;
+            delete mongoose;
+            mongoose = null;
+
+        });
+
+        // acre.init method rootpath option
+        it('should initialize acre and create specified rootpath (good args, rootpath options)', function(done){
+            acre
+            .init(mongoose, app, {rootPath: ''})
+         // .init(mongoose, app, {rootPath: 'new'})  // If root path is set , all directories begin with specified path
+            .then(function(){
+                done();
+            }, function(error){
+                done(error)
+            });
+        });
+
+        // describe an enclosure for our test suites for the acre.init method
         it('should initialize acre (good args, default options)', function(done){
             acre
             .init(mongoose, app)
@@ -91,16 +147,46 @@ describe('REST API', function(){
                 done(error)
             });
         });
+
+         // acre.init method putIsCreate option
+         // putIsCreate is false so only post should create
+        it('should initialize acre and create using POST(good args, rootpath options)', function(done){
+            acre
+            .init(mongoose, app, {putIsCreate: true})
+            //if putIsCreate is false, only post will create
+            //.init(mongoose, app, {putIsCreate: false})
+            .then(function(){
+                done();
+            }, function(error){
+                done(error)
+            });
+        });
+
+           // acre.init method adminPortal option
+        it('should initialize acre and create using admin rights (good args, adminPortal options)', function(done){
+            acre
+           // .init(mongoose, app, {adminPortal: true})
+            //if adminPortal is false, user does not have admin rights
+            .init(mongoose, app, {adminPortal: false})
+            .then(function(){
+                done();
+            }, function(error){
+                done(error)
+            });
+        });
     });
+
+
 
     // describe an enclosure for our test suites for the acre.pre method
     describe('acre.pre CREATE', function(){
         var server;
 
-        // before each of our acre.pre test suites run, we want to... 
+        // before each of our acre.pre test suites run, we want to...
         beforeEach(function(done){
             // give mongoose time to connect, mongohq sandbox db is sometimes slow
-            this.timeout(3000);
+            // increased timeout from 3000 to 5000
+            this.timeout(5000);
 
             // setup acre and an acre.pre method that we will test with
             // this acre.pre method should reject any library created with the name 'Maxwell McOdrum'
@@ -173,7 +259,7 @@ describe('REST API', function(){
                     }
                     else
                     {
-                        // apparntly you cant empty out an empty database, so need to check first
+                        // apparently you cant empty out an empty database, so need to check first
                         if (count > 0)
                         {
                             mongoose.connection.collections['libraries'].drop(function(error){
@@ -259,5 +345,6 @@ describe('REST API', function(){
                 }
             })
         });
+
     });
 });
