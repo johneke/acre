@@ -1,12 +1,13 @@
 {
     "name": "acre"
   , "description": "Admin CRUD, and REST generator for Node.js"
-  , "version": "0.0.22-alpha"
+  , "version": "0.0.23-alpha"
   , "author": "John Eke <john.eke@gmail.com>"
   , "keywords": ["admin portal", "admin", "CRUD", "REST"]
   , "dependencies": {
       "ejs": "*",
       "i": "*",
+      "async": "*",
       "lodash": "*",
       "when": "*",
       "path-to-regexp": "*"
